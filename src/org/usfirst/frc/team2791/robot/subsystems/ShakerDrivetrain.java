@@ -296,7 +296,7 @@ public class ShakerDrivetrain extends Subsystem{
 	 * @return total current usage for all 4 motors in the drivetrain
 	 */
 	public double getCurrentUsage() {
-		return Robot.pdp.getCurrent(RobotMap.POWER_RIGHT_DRIVE_A) + Robot.pdp.getCurrent(RobotMap.POWER_RIGHT_DRIVE_B) + Robot.pdp.getCurrent(RobotMap.POWER_LEFT_DRIVE_A) + Robot.pdp.getCurrent(RobotMap.POWER_LEFT_DRIVE_B);
+		return 0;//Robot.pdp.getCurrent(RobotMap.POWER_RIGHT_DRIVE_A) + Robot.pdp.getCurrent(RobotMap.POWER_RIGHT_DRIVE_B) + Robot.pdp.getCurrent(RobotMap.POWER_LEFT_DRIVE_A) + Robot.pdp.getCurrent(RobotMap.POWER_LEFT_DRIVE_B);
 	}
 
 }

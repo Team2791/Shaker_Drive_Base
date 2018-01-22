@@ -1,11 +1,14 @@
 package org.usfirst.frc.team2791.robot;
 
 import org.usfirst.frc.team2791.robot.ShakerJoystick.ShakerDriver;
+import org.usfirst.frc.team2791.robot.commands.IntakeOn;
+import org.usfirst.frc.team2791.robot.commands.IntakeOff;
 import org.usfirst.frc.team2791.robot.ShakerJoystick.ShakerOperator;
 import org.usfirst.frc.team2791.robot.commands.CalibrateGyro;
 import org.usfirst.frc.team2791.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team2791.robot.util.GTADrive;
 
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -21,7 +24,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	public static ShakerDriver driver;
 	public static ShakerOperator operator;
-
 
 	protected Button driverA, driverB, driverX, driverY, driverLB, driverRB, driverBack, driverStart, driverLS, driverRS;
 	protected Button operatorA, operatorB, operatorX, operatorY, operatorLB, operatorRB, operatorBack, operatorStart, 
@@ -43,15 +45,14 @@ public class OI {
 		System.out.println("OI initialized");
 		driver = new ShakerDriver();
 		operator = new ShakerOperator();
-
 		initButtons();
 		initDpad();
 		//note: the triggers are called in GTADrive and in the joystick objects themselves so we do not have to map them here, esp. since they are for default commands
 
 		/********************************** Operator Button Assignments ****************************************/
-
 		operatorBack.whileHeld(new CalibrateGyro());
-
+		operatorA.whenPressed(new IntakeOn());
+		operatorA.whenReleased(new IntakeOff());
 		/********************************** Driver Button Assignments ****************************************/
 
 		driverLB.whileHeld(new DriveWithJoystick());

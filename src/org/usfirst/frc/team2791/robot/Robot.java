@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2791.robot;
 
 import org.usfirst.frc.team2791.robot.subsystems.ShakerDrivetrain;
+import org.usfirst.frc.team2791.robot.subsystems.ShakerIntake;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
@@ -25,7 +26,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * <a href="gaurab.banerjee97@gmail.com"> gaurab.banerjee97@gmail.com </a>
  */
 public class Robot extends IterativeRobot {
-
+	public static ShakerIntake intake;
 	public static OI oi;
 	public static GamePeriod gamePeriod;
 	public static PowerDistributionPanel pdp; //CAN ID has to be 0 for current sensing

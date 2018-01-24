@@ -38,8 +38,8 @@ public class RobotMap {
 	public static final int POWER_RIGHT_DRIVE_B = 1;
 
 	public static final int POWER_LEFT_DRIVE_A = 2;
-	public static final int POWER_LEFT_DRIVE_B = 3;
+	public static final int POWER_LEFT_DRIVE_B = 7;
 	
-	public static final int INTAKE_A = 7;
-	public static final int INTAKE_B = 8;
+	public static final int INTAKE_A = 3;
+	public static final int INTAKE_B = 12;
 }

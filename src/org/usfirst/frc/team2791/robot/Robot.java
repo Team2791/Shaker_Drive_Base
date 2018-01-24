@@ -49,7 +49,7 @@ public class Robot extends IterativeRobot {
 
 		pdp = new PowerDistributionPanel(RobotMap.PDP); //CAN id has to be 0
 		drivetrain = new ShakerDrivetrain();
-
+		intake = new ShakerIntake(); //DONT FORGET MEEEEEEE
 		oi = new OI();//OI has to be initialized after all subsystems to prevent startCompetition() error
 		
 		debug();

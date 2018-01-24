@@ -2,7 +2,7 @@ package org.usfirst.frc.team2791.robot;
 
 import org.usfirst.frc.team2791.robot.ShakerJoystick.ShakerDriver;
 import org.usfirst.frc.team2791.robot.commands.IntakeOn;
-import org.usfirst.frc.team2791.robot.commands.IntakeOff;
+import org.usfirst.frc.team2791.robot.commands.IntakeRev;
 import org.usfirst.frc.team2791.robot.ShakerJoystick.ShakerOperator;
 import org.usfirst.frc.team2791.robot.commands.CalibrateGyro;
 import org.usfirst.frc.team2791.robot.commands.DriveWithJoystick;
@@ -51,8 +51,10 @@ public class OI {
 
 		/********************************** Operator Button Assignments ****************************************/
 		operatorBack.whileHeld(new CalibrateGyro());
-		operatorA.whenPressed(new IntakeOn());
-		operatorA.whenReleased(new IntakeOff());
+		//So A and B work, try working on getting the requires intake stuff to prevent more than one command running simultaneously,
+		//And get the current sensing to work
+		operatorA.whileHeld(new IntakeOn());
+		operatorB.whileHeld(new IntakeRev());
 		/********************************** Driver Button Assignments ****************************************/
 
 		driverLB.whileHeld(new DriveWithJoystick());

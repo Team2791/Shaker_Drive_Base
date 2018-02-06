@@ -11,12 +11,15 @@ public class CONSTANTS { //for constants ONLY; ports are in RobotMap
 	
 	// JOYSTICK deadzone
 	public static final double DEADZONE = 0;
-	
+
+	public static final double LIMELIGHT_TURNING_KP = 10;
+	public static final double LIMELIGHT_TURNING_DIVISOR = 0.05;
+	public static final double LIMELIGHT_TURNING_CAP = 0.3;
 	//Drive constants
 	public static final double driveEncoderTicks = 256;//Greyhill standard encoder
 	
 	public static final double WHEEL_DIAMETER_IN_IN = 4.0;//Drive wheels - Colson
 	public static final double WHEEL_DIAMETER_IN_FEET = WHEEL_DIAMETER_IN_IN/12.0;
 	
-	public static final double DRIVETRAIN_SPEED_MULTIPLIER = 1.0; //Used if you want to slow down the drivetrain.
+	public static final double DRIVETRAIN_SPEED_MULTIPLIER = 0.3; //Used if you want to slow down the drivetrain.
 }

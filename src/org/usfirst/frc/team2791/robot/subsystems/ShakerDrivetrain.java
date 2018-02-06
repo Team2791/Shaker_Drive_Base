@@ -25,8 +25,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class ShakerDrivetrain extends Subsystem{
 
-	private Spark leftSparkA, leftSparkB;    
-	private Spark rightSparkA, rightSparkB;
+	private Spark leftSparkA;//, leftSparkB;
+	private Spark rightSparkA;//, rightSparkB;
 	
 	protected Encoder leftDriveEncoder = null;
 	protected Encoder rightDriveEncoder = null;
@@ -60,17 +60,17 @@ public class ShakerDrivetrain extends Subsystem{
 	public ShakerDrivetrain(){
 		
 		leftSparkA = new Spark(RobotMap.DRIVE_SPARK_LEFT_PORT_A);
-		leftSparkB = new Spark(RobotMap.DRIVE_SPARK_LEFT_PORT_B);
+		//leftSparkB = new Spark(RobotMap.DRIVE_SPARK_LEFT_PORT_B);
 		
 		rightSparkA = new Spark(RobotMap.DRIVE_SPARK_RIGHT_PORT_A);
-		rightSparkB = new Spark(RobotMap.DRIVE_SPARK_RIGHT_PORT_B);
+		//rightSparkB = new Spark(RobotMap.DRIVE_SPARK_RIGHT_PORT_B);
 
 		leftDriveEncoder = new Encoder(RobotMap.LEFT_DRIVE_ENCODER_PORT_A, RobotMap.LEFT_DRIVE_ENCODER_PORT_B);
 		rightDriveEncoder = new Encoder(RobotMap.RIGHT_DRIVE_ENCODER_PORT_A,RobotMap.RIGHT_DRIVE_ENCODER_PORT_B);
 
 		//Uses the Sparks to create a robotDrive (it has methods that allow for easier control of the whole drivetrain at once)
-		shakyDrive = new RobotDrive(new SpeedControllerSet(leftSparkA,leftSparkB), new SpeedControllerSet(rightSparkA,rightSparkB));
-		
+		//shakyDrive = new RobotDrive(new SpeedControllerSet(leftSparkA,leftSparkB), new SpeedControllerSet(rightSparkA,rightSparkB));
+		shakyDrive = new RobotDrive(leftSparkA, rightSparkA);
 		//Inverts the motor outputs so that the right and left motors both turn the right direction for forward drive
 		shakyDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 		shakyDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
@@ -114,6 +114,8 @@ public class ShakerDrivetrain extends Subsystem{
 	 * @param right motor output*/
 	public void setLeftRightMotorOutputs(double left, double right){
 		shakyDrive.setLeftRightMotorOutputs(left, right);
+		//System.out.println("In shaker Drivetrain");
+
 	}
 	
 	/**

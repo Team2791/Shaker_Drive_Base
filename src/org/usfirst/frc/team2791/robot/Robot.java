@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2791.robot;
 
 import org.usfirst.frc.team2791.robot.subsystems.ShakerDrivetrain;
+import org.usfirst.frc.team2791.robot.util.Limelight;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
@@ -24,12 +25,14 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * @author Gaurab Banerjee: 
  * <a href="gaurab.banerjee97@gmail.com"> gaurab.banerjee97@gmail.com </a>
  */
+
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	public static GamePeriod gamePeriod;
 	public static PowerDistributionPanel pdp; //CAN ID has to be 0 for current sensing
 	public static ShakerDrivetrain drivetrain;
+	public static Limelight limelight;
 
 	/**
 	 * setting autonomousCommand to a Command will cause that Command to run in autonomous init
@@ -48,6 +51,7 @@ public class Robot extends IterativeRobot {
 
 		pdp = new PowerDistributionPanel(RobotMap.PDP); //CAN id has to be 0
 		drivetrain = new ShakerDrivetrain();
+		limelight = new Limelight();
 
 		oi = new OI();//OI has to be initialized after all subsystems to prevent startCompetition() error
 		
@@ -140,7 +144,8 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void debug() {
-		drivetrain.debug();
+		//drivetrain.debug();
+		limelight.debug();
 	}
 
 	public enum GamePeriod {

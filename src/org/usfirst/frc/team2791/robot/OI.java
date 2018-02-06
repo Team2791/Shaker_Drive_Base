@@ -4,8 +4,9 @@ import org.usfirst.frc.team2791.robot.ShakerJoystick.ShakerDriver;
 import org.usfirst.frc.team2791.robot.ShakerJoystick.ShakerOperator;
 import org.usfirst.frc.team2791.robot.commands.CalibrateGyro;
 import org.usfirst.frc.team2791.robot.commands.DriveWithJoystick;
+import org.usfirst.frc.team2791.robot.util.CONSTANTS;
 import org.usfirst.frc.team2791.robot.util.GTADrive;
-
+import org.usfirst.frc.team2791.robot.commands.limelightTarget.*;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -42,7 +43,7 @@ public class OI {
 	public OI(){
 		System.out.println("OI initialized");
 		driver = new ShakerDriver();
-		operator = new ShakerOperator();
+		//operator = new ShakerOperator();
 
 		initButtons();
 		initDpad();
@@ -50,13 +51,13 @@ public class OI {
 
 		/********************************** Operator Button Assignments ****************************************/
 
-		operatorBack.whileHeld(new CalibrateGyro());
+		//operatorBack.whileHeld(new CalibrateGyro());
 
 		/********************************** Driver Button Assignments ****************************************/
 
 		driverLB.whileHeld(new DriveWithJoystick());
 		driverRB.whileHeld(new DriveWithJoystick());
-
+		driverX.whileHeld(new DriveTowardLimelightTargetStopWithDistance(CONSTANTS.DRIVETRAIN_SPEED_MULTIPLIER, 8));
 		driverBack.whileHeld(new CalibrateGyro());
 	}
 
@@ -75,7 +76,7 @@ public class OI {
 		driverLS = new JoystickButton(driver,9);
 		driverRS = new JoystickButton(driver,10);
 
-		operatorA = new JoystickButton(operator, 1);
+		/*operatorA = new JoystickButton(operator, 1);
 		operatorB = new JoystickButton(operator, 2);
 		operatorX = new JoystickButton(operator, 3);
 		operatorY = new JoystickButton(operator, 4);
@@ -84,7 +85,7 @@ public class OI {
 		operatorBack = new JoystickButton(operator,7);
 		operatorStart = new JoystickButton(operator, 8);
 		operatorLS = new JoystickButton(operator,9);
-		operatorRS = new JoystickButton(operator,10);
+		operatorRS = new JoystickButton(operator,10);*/
 	}
 
 	/**
@@ -147,7 +148,7 @@ public class OI {
 			}
 		};
 
-		operatorDpadUp = new Button(){
+		/*operatorDpadUp = new Button(){
 			@Override
 			public boolean get(){
 				return operator.getDpadUp();
@@ -196,6 +197,6 @@ public class OI {
 			public boolean get(){
 				return operator.getDpadUpLeft();
 			}
-		};
+		};*/
 	}
 }

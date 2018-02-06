@@ -22,11 +22,11 @@ public class RobotMap {
 	public static final int RIGHT_DRIVE_ENCODER_PORT_B = 3;
 	
 	// PWM PORTS
-	public static final int DRIVE_SPARK_LEFT_PORT_A = 0;
-	public static final int DRIVE_SPARK_LEFT_PORT_B = 1;
+	public static final int DRIVE_SPARK_LEFT_PORT_A = 9;
+	//public static final int DRIVE_SPARK_LEFT_PORT_B = 1;
 	
-	public static final int DRIVE_SPARK_RIGHT_PORT_A = 2;
-	public static final int DRIVE_SPARK_RIGHT_PORT_B = 3;
+	public static final int DRIVE_SPARK_RIGHT_PORT_A = 8;
+	//public static final int DRIVE_SPARK_RIGHT_PORT_B = 3;
 	
 	// CAN
 	public static final int PDP = 0;
